@@ -104,5 +104,19 @@ Le système combine efficacement Flask, Elasticsearch et VGG16 pour offrir rapid
 └── templates/
     └── index.html                  # Interface web
 ```
+## 📂 Configuration des Chemins
 
+### Environnement de développement
+
+**Poste de travail :** Jupyter
+
+**Chemin du dataset :**
+```
+D:\Search_with_images
+```
+
+**Chemin du projet :**
+```
+D:\fatmarimelemna\ElasticSearch_ImageSimiliarities_VGG16featureExtractor_JS_Python-main\ElasticSearch_ImageSimiliarities_VGG16featureExtractor_JS_Python-main
+```
 
