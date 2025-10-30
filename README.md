@@ -105,19 +105,4 @@ Le système combine efficacement Flask, Elasticsearch et VGG16 pour offrir rapid
     └── index.html                  # Interface web
 ```
 
-## 👥 Contributeurs
 
-**Développé par :**
-- Emna Belguith
-- Fatma Abid
-- Rimel Hammami
-
-**Encadrement :**
-- M. Riadh Tebourbi
-
-**Institution :** Sup'Com – Tunisie
-
-
-
-
-*Projet académique démontrant l'efficacité de la combinaison entre Deep Learning et moteurs de recherche modernes pour la recherche d'images par similarité.*
