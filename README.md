@@ -1,100 +1,123 @@
-# 🔍 Recherche d’Images par Similarité avec Elasticsearch
+# 🔍 Recherche d'Images par Similarité avec Elasticsearch
 
-## 📘 Description du Projet
-Ce projet consiste à développer une **application web** permettant la recherche d’images par **similarité visuelle** ou par **requête textuelle**.  
-Elle repose sur un **backend Flask** en Python et une **base Elasticsearch** pour la recherche vectorielle et textuelle.
+## 📋 Description
 
-L’objectif est de combiner la puissance de l’**apprentissage profond** pour l’extraction des caractéristiques visuelles et la flexibilité d’**Elasticsearch** pour un système de recherche rapide, précis et extensible.
+Ce projet propose une application web de recherche d'images par similarité visuelle et par requête textuelle, combinant les techniques de Deep Learning et le moteur de recherche Elasticsearch.
 
----
+### Fonctionnalités principales
 
-## 🧠 Fonctionnalités Principales
+L'application offre deux modes de recherche complémentaires :
 
-### 🔹 Recherche par Image
-- Téléversement ou glisser-déposer d’une image.
-- Extraction automatique des caractéristiques visuelles via un modèle **VGG16 pré-entraîné**.
-- Recherche des images les plus similaires dans Elasticsearch selon plusieurs métriques (cosinus, L1, L2).
+* **Recherche par image** : Retrouvez des images visuellement similaires à partir d'une image téléversée
+* **Recherche par texte** : Trouvez des images pertinentes à partir de mots-clés ou de descriptions
 
-### 🔹 Recherche par Texte
-- Entrée d’une description textuelle.
-- Génération et comparaison des **embeddings textuels** pour trouver les images sémantiquement proches.
+## 🚀 Installation et Configuration
 
-### 🔹 Interface Web Interactive
-- Conçue avec **HTML, CSS et JavaScript (AJAX)**.
-- Affichage instantané des résultats avec score de similarité.
-- Deux modes : recherche par image et recherche par texte.
+### Prérequis
 
----
+- Python 3.8+
+- Elasticsearch 9.x
+- Conda (recommandé) ou virtualenv
 
----
+### Étapes d'installation
 
-## 🚀 Installation et Exécution
-
-### 1️⃣ Cloner le projet
+1. **Cloner le dépôt**
 ```bash
-git clone https://github.com/08Youssef08/ElasticSearch_ImageSimiliarities_VGG16featureExtractor_JS_Python.git
-cd ElasticSearch_ImageSimiliarities_VGG16featureExtractor_JS_Python
-2️⃣ Créer un environnement virtuel
+git clone https://github.com/fatma-abid/image-and-text-search-engine.git
+cd image-and-text-search-engine
+```
+
+2. **Créer et activer un environnement virtuel**
+```bash
 conda create -n searchenv python=3.8
 conda activate searchenv
+```
 
-3️⃣ Installer les dépendances
+3. **Installer les dépendances**
+```bash
 pip install -r requirements.txt
+```
 
-4️⃣ Lancer Elasticsearch
+4. **Lancer Elasticsearch**
 
-Ouvre le dossier bin d’Elasticsearch et exécute :
+Naviguez vers le dossier `bin` de votre installation Elasticsearch et exécutez :
+```bash
+elasticsearch.bat  # Windows
+# ou
+./elasticsearch    # Linux/Mac
+```
 
-elasticsearch.bat
+Attendez que le service démarre sur le port par défaut `9200`.
 
+## 📊 Indexation des Données
 
-Attends qu’il démarre sur le port 9200.
-
-5️⃣ Indexer les images et les textes
+Avant d'utiliser l'application, indexez vos images et descriptions textuelles :
+```bash
 python create_image_embeddings.py
 python create_text_embeddings.py
+```
 
-6️⃣ Démarrer l’application
+Ces scripts effectuent les opérations suivantes :
+- Extraction des caractéristiques visuelles via le modèle VGG16
+- Analyse et traitement des descriptions textuelles associées
+- Stockage optimisé dans Elasticsearch pour des recherches rapides
+
+## 🎯 Démarrage de l'Application
+
+Lancez le serveur Flask :
+```bash
 python app.py
+```
+
+Accédez ensuite à l'application via votre navigateur : **http://127.0.0.1:5000**
+
+## 💡 Exemple d'Utilisation
+
+### Recherche par image
+1. Téléversez une photo (exemple : un chat)
+2. Le système analyse l'image et affiche instantanément les images les plus similaires visuellement
+
+### Recherche par texte
+1. Entrez un mot-clé ou une description (exemple : "fleur")
+2. L'application retourne immédiatement les images correspondantes
+
+## 📈 Performances
+
+- **Temps de réponse moyen** : < 500 ms
+- **Précision de similarité visuelle** : Élevée grâce au modèle VGG16
+- **Évolutivité** : Architecture capable de gérer de grandes bases d'images
+
+Le système combine efficacement Flask, Elasticsearch et VGG16 pour offrir rapidité, précision et scalabilité.
+
+## 🏗️ Architecture du Projet
+```
+.
+├── app.py                          # Application Flask principale
+├── create_image_embeddings.py      # Extraction et indexation des features d'images
+├── create_text_embeddings.py       # Indexation des descriptions textuelles
+├── feature_extractor.py            # Implémentation du modèle VGG16
+├── requirements.txt                # Dépendances Python
+├── README.md                       # Documentation
+├── static/
+│   ├── script.js                   # Scripts JavaScript côté client
+│   └── styles.css                  # Feuilles de style CSS
+└── templates/
+    └── index.html                  # Interface web
+```
+
+## 👥 Contributeurs
+
+**Développé par :**
+- Emna Belguith
+- Fatma Abid
+- Rimel Hammami
+
+**Encadrement :**
+- M. Riadh Tebourbi
+
+**Institution :** Sup'Com – Tunisie
 
 
-➡️ Ouvre ton navigateur à l’adresse :
-http://127.0.0.1:5000
-
-🧪 Exemple de Fonctionnement
-
-Recherche par image : téléverse une photo (ex : un chat 🐱), le système affiche les images visuellement similaires.
-
-Recherche par texte : entre un mot-clé comme fleur 🌸, les images correspondantes s’affichent instantanément.
-
-📊 Résultats et Performance
-
-Temps de réponse moyen : < 500 ms
-
-Précision de similarité visuelle : élevée
-
-Évolutivité avec de grandes bases d’images
-
-🏁 Conclusion
-
-Ce projet démontre l’efficacité de l’intégration entre Deep Learning et moteurs de recherche modernes.
-Il offre une solution rapide, précise et extensible pour la recherche visuelle et textuelle d’images.
-Des améliorations futures incluent :
-
-L’intégration de modèles plus performants (ResNet, EfficientNet)
-
-La recherche multimodale combinant texte et image.
-
-👩‍💻 Auteurs
-
-Emna Belguith
-
-Fatma Abid
-
-Rimel Hammami
-
-Encadré par : M. Riadh Tebourbi
-📍 Sup’Com – Tunisie
 
 
-
+*Projet académique démontrant l'efficacité de la combinaison entre Deep Learning et moteurs de recherche modernes pour la recherche d'images par similarité.*
