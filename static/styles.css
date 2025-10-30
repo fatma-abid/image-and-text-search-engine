@@ -1,0 +1,148 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f7;
+    color: #4b4b4b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header Styling */
+header {
+    background-color: #6a4c9c;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Main Heading Styling */
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+/* Search Bar Styling */
+.search-bar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Search Input */
+#searchInput {
+    padding: 10px;
+    width: 60%;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    margin-right: 10px;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Button Styling */
+#searchBtn {
+    padding: 10px 20px;
+    background-color: #f312e8;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Search Button Hover Effect */
+#searchBtn:hover {
+    background-color: #f312e8;
+    transform: translateY(-2px);
+}
+
+/* Output Section Styling */
+#output {
+    text-align: center;
+    font-size: 18px;
+    color: #6a4c9c;
+    margin-top: 20px;
+    width: 80%;
+    max-width: 1200px;
+}
+
+/* Drop Zone Styling */
+#drop_zone {
+    width: 80%;
+    height: 300px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 2px dashed #6a4c9c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f3fe;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #a29bfe;
+    transition: background-color 0.3s, border-color 0.3s;
+    background-size: contain; /* Ensure the image is contained */
+    background-position: center; /* Position image at the center */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+
+/* Drop Zone Highlight Effect */
+#drop_zone.highlight {
+    border-color: #d36dff;
+    background-color: #ebdbf7;
+}
+
+/* Grid Layout for Image Results */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    margin-top: 30px;
+    width: 80%;
+    max-width: 1200px;
+}
+
+/* Grid Item (Image) Styling */
+.grid-item {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Grid Item Hover Effect */
+.grid-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    #searchInput {
+        width: 80%;
+    }
+
+    #searchBtn {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .grid-container {
+        width: 90%;
+    }
+
+    #drop_zone {
+        width: 90%;
+    }
+}
